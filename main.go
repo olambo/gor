@@ -6,7 +6,7 @@ import (
 	"gorgonia.org/gorgonia"
 )
 
-func gorXplusY(xval, yval float64) (float64, error) {
+func gorXplusY(xval, yval float32) (float32, error) {
 	creScalarNode := func(g *gorgonia.ExprGraph, name string) *gorgonia.Node {
 		return gorgonia.NewScalar(g, gorgonia.Float32, gorgonia.WithName(name))
 	}
@@ -26,9 +26,9 @@ func gorXplusY(xval, yval float64) (float64, error) {
 	if err = machine.RunAll(); err != nil {
 		return 0, fmt.Errorf("cannot run expression: %w", err)
 	}
-	ret, ok := z.Value().Data().(float64)
+	ret, ok := z.Value().Data().(float32)
 	if !ok {
-		return 0, fmt.Errorf("cannot create float64 from : %v", z.Value())
+		return 0, fmt.Errorf("cannot create float32 from : %v", z.Value())
 	}
 	return ret, nil
 }

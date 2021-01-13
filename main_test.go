@@ -6,9 +6,9 @@ import (
 
 func TestXplusY(t *testing.T) {
 	tcases := map[string]struct {
-		x    float64
-		y    float64
-		want float64
+		x    float32
+		y    float32
+		want float32
 	}{
 		"t1": {2.5, 1.5, 4.0},
 	}
